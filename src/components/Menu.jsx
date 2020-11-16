@@ -77,7 +77,7 @@ const Menu = props => {
     return (
         <div>
             <h1>Menu</h1>
-            <h2>Food</h2>
+            <h2 className="category">Food</h2>
             <div className="menu-wrapper">
                 {menuItems.filter(({category}) => category == 'food').map(item => {
                     return(
@@ -96,7 +96,7 @@ const Menu = props => {
     
                 })}
             </div>
-            <h2>Beverages</h2>
+            <h2 className="category">Beverages</h2>
             <div 
                 className="menu-wrapper"
             >
@@ -118,7 +118,7 @@ const Menu = props => {
     
                 })}
             </div>
-                <h2>!?!?!?!?</h2>
+                <h2 className="category">!?!?!?!?</h2>
             <div 
                 className="menu-wrapper"
             >

@@ -9,34 +9,47 @@ const Cart = props => {
     
     const TAX = 1.08;
     
-    
     console.log(props.cartItems);
     console.log(total);
     const handleCheckout = event => {
+        document.getElementById("thanks-wrapper").style.display = "block";
         props.checkOut();
         setTotal(0);
+        setTimeout(() => {
+            document.getElementById("thanks-wrapper").style.display = "none";
+        }, 3000);
     }
     if(total){
         return (
-            <ul>
-                {props.cartItems.map((item,i )=> {
-                    return(
-                        <li
+            <div className="content-wrapper">
+
+                <table className="cart-table">
+                    {props.cartItems.map((item,i )=> {
+                        return(
+                            <tr
                             key={i}
-                        
-                        >
-                            <p>{item.name}</p><p>{'$' + item.price}</p>
-                        </li>
-                        
+                            >
+                                <td className="name-col">{item.name}</td>
+                                <td className="price-col">{'$' + item.price}</td>
+                            </tr>
+                                
+                            
                         )
-                })}
-                <li>{'Total: $' + (total * TAX).toFixed(2)}</li>
+                    })}
+                    <tr className="total">
+                        <td className="name-col">Total</td>
+                        <td className="price-col">{'$' + (total * TAX).toFixed(2)}</td>
+                    </tr>
+
+                </table>
                 <button onClick={handleCheckout}>Checkout</button>
-            </ul>
+
+            </div>
+ 
         );
     }else{
         return (
-            <div>
+            <div className="content-wrapper">
                 Your cart is empty
             </div>
         )

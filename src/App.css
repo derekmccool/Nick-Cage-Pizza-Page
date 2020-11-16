@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 *{
+  font-family: 'Press Start 2P', cursive;
   text-align: center;
   margin: 0;
   padding: 0;
@@ -19,6 +22,10 @@ nav a{
   padding: 1em;
 }
 
+footer{
+  height: 4em;
+  background-color: red;
+}
 .menu-item-img{
   max-height: 10em;
 }
@@ -34,11 +41,55 @@ nav a{
   width: 25em;
 }
 
-.cart-msg{
-  animation: fadeOut 1s ease-in-out;
+#cart-msg{
+  opacity: 1;
+  transition: all 3s;
 }
 
-@keyframes fadeOut{
-  0% {opacity: 1;}
-  100% {opacity: 0;}
+.content-wrapper{
+  padding: 3em 0;
+  position: relative;
+}
+
+.msg-wrapper{
+  padding: 1em;
+  height: 3em;
+}
+
+#thanks-wrapper{
+  top: 30%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  width: 100%;
+  background-color: black;
+  padding: 1em;
+  color: white;
+  display: none;
+}
+.cart-table{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.name-col{
+  width: 75%;
+}
+.price-col{
+  width: 25%;
+}
+
+.category{
+  padding: .25em 0;
+  background-color: red;
+  width: 100%;
+  color: white;
+  margin: 1em 0;
+}
+.cart-table .total{
+  padding-top: 1em;
+  margin-top: 1em;
+  color: red;
 }
