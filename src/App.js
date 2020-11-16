@@ -1,14 +1,14 @@
-import React, {useState} from 'react';
-import './App.css';
+import React, { Component } from "react"
 import NavBar from './components/NavBar';
+import './App.css';
 
-const App = () => {
+export default class App extends Component {
 
-  return (
-    <div>
-          <NavBar/>
-    </div>
-  );
-};
-
-export default App;
+  render() {
+    return (
+      <div>
+        <NavBar/>
+      </div>
+    )
+  }
+}

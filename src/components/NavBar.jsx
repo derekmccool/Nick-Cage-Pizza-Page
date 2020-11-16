@@ -6,7 +6,7 @@ import Cart from './Cart';
 
 const NavBar = props => {
     const [cartItems, setCart] = useState([]);
-  
+    const [cartMsg, setCartMsg] = useState("");
   
     const addToCart = event => {
         let cartItem = {
@@ -18,6 +18,8 @@ const NavBar = props => {
             ...cartItems,
             cartItem
         ])
+        setCartMsg(cartItem.name);
+        
     }
   
     const checkOut = event => {
@@ -34,6 +36,8 @@ const NavBar = props => {
                     <Link to="/specials">Specials</Link>
                     <Link to="/cart">Cart({(cartItems.length > 0 ) ? cartItems.length : 0 })</Link>
                 </nav>
+                <h2 className="cart-msg">{cartMsg}</h2>
+
             <Switch>
               <Route path="/menu">
                   <Menu addToCart={addToCart}/>

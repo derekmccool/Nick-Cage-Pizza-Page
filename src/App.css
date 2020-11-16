@@ -33,3 +33,12 @@ nav a{
 .menu-item{
   width: 25em;
 }
+
+.cart-msg{
+  animation: fadeOut 1s ease-in-out;
+}
+
+@keyframes fadeOut{
+  0% {opacity: 1;}
+  100% {opacity: 0;}
+}

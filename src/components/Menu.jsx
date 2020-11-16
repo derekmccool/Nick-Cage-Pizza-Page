@@ -7,6 +7,13 @@ const Menu = props => {
         props.addToCart(menuItems.find(({id}) => id == event.target.value));
     }
 
+    const handleBees = event =>{
+        event.preventDefault();
+        props.addToCart(menuItems.find(({id}) => id == event.target.value));
+        const notTheBees = document.getElementsByClassName("audio-element")[0]
+        notTheBees.play()
+    }
+
     const menuItems = [
         {
             id: 1,
@@ -126,7 +133,10 @@ const Menu = props => {
                         <p>{item.descr}</p>
                         <img className="menu-item-img" src={item.img}></img>
                         <p>{item.price}</p>
-                        <button className="add-to-cart-btn" onClick={handleClick} value={item.id}>Add</button>
+                        <audio className="audio-element">
+                            <source src="not-the-bees.mp3"></source>
+                        </audio>
+                        <button className="add-to-cart-btn" onClick={handleBees} value={item.id}>Add</button>
 
                     </div>
                     )
