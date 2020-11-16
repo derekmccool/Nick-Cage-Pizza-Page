@@ -1,19 +1,40 @@
 import React, {useState} from 'react';
 import MovieDetails from './MovieDetails';
+import axios from 'axios';
+
 const Specials = props => {
 
+    const [movie, setMovie] = useState("");
+
+    const URL= 'http://www.omdbapi.com?apikey=';
+    const API_KEY = '60dbbaf4';
+    const SEARCH = '&t=';
+ 
+    const getApiAxios = (title) => {
+        axios.get(URL + API_KEY + SEARCH + title)
+            .then(response => {
+                setMovie(response.data);
+            })
+        console.log("---------------");
+        console.log(movie);
+    }
 
 
+
+    const handleDetailsClick = event => {
+        getApiAxios(event.target.value);
+        document.getElementById("details-wrapper").style.display = "flex";
+    }
     
     const handleClick = event =>{
         event.preventDefault();
-        props.addToCart(specials.find(({id}) => id == event.target.value));
+        props.addToCart(specials.find(({id}) => id === event.target.value));
     }
 
 
     const specials = [
         {
-            id: 1,
+            id: '1',
             name: 'The Face Off',
             items: [
 
@@ -33,7 +54,7 @@ const Specials = props => {
             price: 22.00
         },
         {
-            id: 2,
+            id: '2',
             name: 'In-Flight Meal',
             items: [
 
@@ -58,7 +79,7 @@ const Specials = props => {
             price: 12.99
         },
         {
-            id: 3,
+            id: '3',
             name: 'Leaving Sauce Vegas',
             items: [
 
@@ -79,7 +100,7 @@ const Specials = props => {
             price: 4.99
         },
         {
-            id: 4,
+            id: '4',
             name: 'BreadStick Men',
             items: [
                 {
@@ -99,7 +120,7 @@ const Specials = props => {
         },
 
         {
-            id: 5,
+            id: '5',
             name: 'The Bees In My Eyes',
             items: [
                 {
@@ -123,19 +144,26 @@ const Specials = props => {
     return (
         <div>
             <h1>Specials</h1>
+            <div id="details-wrapper">
+                <MovieDetails movie={movie}/>
+            </div>
             <div 
                 className="menu-wrapper"
             >
-                {specials.map(item => {
+                {specials.map(special => {
                     return(
                         <div
                             className="menu-item" 
-                            key={item.id}
+                            key={special.id}
                         >
-                        <h2>{item.name}</h2>
-                        <p>{item.descr}</p>
-                        <button className="add-to-cart-btn" onClick={handleClick} value={item.id}>Add</button>
-                        <MovieDetails movieTitle={item.movie} />
+                        <h2>{special.name}</h2>
+                        {special.items.map(item => {
+                            return(
+                                <p>{item.descr + "  qty: " + item.qty}</p>
+                            )
+                        })}
+                        <button className="add-to-cart-btn" onClick={handleClick} value={special.id}>Add</button>
+                        <button value={special.movie} onClick={handleDetailsClick} >Show Details</button>
                     </div>
                     )
     

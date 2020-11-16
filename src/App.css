@@ -93,3 +93,26 @@ footer{
   margin-top: 1em;
   color: red;
 }
+
+
+#details-wrapper{
+  display: none;
+  position: absolute;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.98);
+  position: absolute;
+  animation: fadeIn ease 1s;
+  color: white;
+}
+
+.movie-wrapper{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.poster-wrapper{
+  width: 40%;
+}
+.movie-info{
+  width: 50%;
+}
