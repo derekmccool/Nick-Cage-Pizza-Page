@@ -6,9 +6,9 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="body-wrapper">
         <NavBar/>
-        <footer>Footer</footer>
+        <footer className="footer"></footer>
       </div>
     )
   }

@@ -153,7 +153,7 @@ const Specials = props => {
                 {specials.map(special => {
                     return(
                         <div
-                            className="menu-item" 
+                            className="special-item" 
                             key={special.id}
                         >
                         <h2>{special.name}</h2>
