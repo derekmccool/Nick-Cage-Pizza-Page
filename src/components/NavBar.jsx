@@ -65,6 +65,8 @@ const NavBar = props => {
               <Route exact path="/">
                   <div className="content-wrapper">
                     <h1>Home Cage</h1>
+                    <br/>
+                    <p>Nick loves pizza, you should too.  Order some food or check out or specials and get a movie with your food.</p>
                     <div>
                         <img src="cage-dancing.gif" alt="cage-dancing.gif"/>
                     </div>
